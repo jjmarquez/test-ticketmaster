@@ -20,7 +20,6 @@ export class PagerComponent implements OnInit {
 
   changePage(eventData: any) {
     if (this.currentPage >= 0 && this.totalPages) {
-      console.log(eventData.target.innerText.trim().toLowerCase());
       eventData.target.innerText.trim().toLowerCase() === 'prev'
         ? (this.currentPage -= 1)
         : (this.currentPage += 1);

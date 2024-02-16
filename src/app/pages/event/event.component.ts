@@ -49,7 +49,6 @@ export class EventComponent implements OnInit {
 
   getList(pageNumber: number, filter?: IDataFilter) {
     this.eventService.getList(pageNumber, filter).then((res) => {
-      console.log(res);
       if (res && res._embedded) {
         this.listEvents = res._embedded.events;
         this.pager = res.page;
