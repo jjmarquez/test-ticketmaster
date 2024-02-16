@@ -1,0 +1,30 @@
+@if (totalPages>1) {
+<div class="text-center my-5">
+  <button
+    mat-raised-button
+    color="primary"
+    [disabled]="currentPage <= 0"
+    type="button"
+    (click)="changePage($event)"
+    class="btn btn-info mr-5 previous"
+    id="previous"
+  >
+    Prev
+  </button>
+  <span class="ml-3 text-base text-violet-800 font-semibold">
+    Page {{ currentPage + 1 }}/{{ totalPages }}
+  </span>
+
+  <button
+    mat-raised-button
+    color="primary"
+    [disabled]="currentPage >= this.totalPages - 1"
+    type="button"
+    (click)="changePage($event)"
+    class="btn btn-info ml-5 next"
+    id="next"
+  >
+    Next
+  </button>
+</div>
+}

@@ -1,0 +1,13 @@
+<div>
+  <app-event-form (eventFilter)="setFilter($event)"></app-event-form>
+  @if (this.loadingService.loading()) {
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  } @else {
+  <app-event-list [listEvents]="this.listEvents"></app-event-list>
+  <app-pager
+    [totalPages]="this.pager.totalPages"
+    [currentPage]="this.pager.number"
+    (pageChange)="this.chagePage($event)"
+  ></app-pager>
+  }
+</div>

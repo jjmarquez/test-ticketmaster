@@ -1,0 +1,51 @@
+<div
+  class="grid text-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-center m-auto items-stretch gap-2 mt-4 min-h-80"
+>
+  <!-- List -->
+  @for (event of listEvents; track event.id) {
+  <mat-card class="card-event" (click)="goToLink(event.url)" [id]="event.id">
+    <mat-card-header class="flex flex-col flex-1">
+      <div>
+        <p>{{ event.name }}</p>
+      </div>
+    </mat-card-header>
+    <img
+      mat-card-image
+      src="{{ event.images[1].url }}"
+      alt="Event img"
+      class="w-full h-40"
+    />
+    <mat-card-content>
+      <div class="py-2">
+        <p>
+          Date:
+          {{ event.dates?.start?.localDate | date : "MM-dd-YYYY" }} /
+          {{ event.dates?.start?.localTime }}
+        </p>
+        <p>
+          Timezone:
+          {{ event.dates?.timezone ? event.dates?.timezone : "Not found" }}
+        </p>
+        <div class="flex justify-center align-middle gap-2">
+          country: {{ event.locale }}
+          <img
+            src="{{
+              './assets/svg-country-flags/svg/' +
+                event.locale.split('-')[1] +
+                '.svg'
+            }}"
+            alt="country-flag"
+            class="w-5 h-5"
+          />
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  }
+</div>
+
+@if (this.listEvents.length == 0) {
+<div class="w-full text-center text-lg text-violet-800 font-medium">
+  No data...
+</div>
+}

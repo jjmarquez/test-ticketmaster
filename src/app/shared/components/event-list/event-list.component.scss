@@ -1,0 +1,12 @@
+.is__invalid-input {
+  border-color: #e11d48;
+}
+
+.is__invalid-error {
+  color: #e11d48;
+  @apply px-1 pt-1 text-xs;
+}
+
+.card-event {
+  @apply flex flex-col h-full justify-between hover:shadow-md hover:shadow-indigo-700 hover:cursor-pointer ease-in-out;
+}
